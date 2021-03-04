@@ -1,6 +1,6 @@
 import datetime as dt
 
-from mathematics.interpolation import derivative
+from math.interpolation import derivative
 
 
 """
@@ -8,15 +8,15 @@ datetime manipulations
 """
 
 
-def to_datetime(dates):
+def string_to_datetime(dates):
     return [dt.datetime.strptime(d, '%Y-%m-%d').date() for d in dates]
 
 
-def from_datetime(dt_objs, format='%Y-%m-%d'):
+def datetime_to_string(dt_objs, format='%Y-%m-%d'):
     return [dt.datetime.strftime(d, format) for d in dt_objs]
 
 
-def to_float(dates, year_0=2012):
+def datetime_to_float(dates, year_0=1979):
     _d = []
     for date in dates:
         d = str(date).split('-')
@@ -31,5 +31,5 @@ Numerical methods
 
 
 def time_series_derivative(x, y):
-    return derivative(to_float(x), to_float(y))
+    return derivative(datetime_to_float(x), datetime_to_float(y))
 

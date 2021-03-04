@@ -1,6 +1,6 @@
 from scipy.interpolate import UnivariateSpline
 
-from mathematics.algorithms import largest_prime_factor
+from math.algorithms import largest_prime_factor
 
 """
 Interpolation

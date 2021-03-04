@@ -1,5 +1,11 @@
+import numpy as np
+import pandas as pd
+
 import matplotlib as mpl
+import matplotlib.pyplot as plt
+
 from mpl_plotter.two_d import line
+from mpl_plotter.three_d import line as line3
 
 
 class Worksheet:
@@ -14,7 +20,6 @@ class Worksheet:
         return self.headings
 
     def column_values(self, n_col):
-        import pandas as pd
         c = []
         for row in tuple(self.ws.rows):
             c.append(row[n_col].value)
@@ -53,7 +58,6 @@ class Worksheet:
         return self
 
     def save(self, name, dpi):
-        import matplotlib.pyplot as plt
         plt.tight_layout()
         plt.savefig(name, dpi=dpi)
         plt.show()
@@ -62,28 +66,25 @@ class Worksheet:
         """
         Deprecated
         """
-        from mpl_plotter.three_d import line
-        import numpy as np
         try:
             y = self.column_values(self.headings.index(col1))
             z = self.column_values(self.headings.index(col2))
             xx = x*np.ones(y.shape)
-            line(x=xx,
-                 y=y,
-                 z=z,
-                 x_label='Wind', x_label_pad=10,
-                 y_label=col1, y_label_pad=10, y_label_rotation=90,
-                 z_label=col2, z_label_pad=10, z_label_rotation=90,
-                 x_label_size=16, y_label_size=16, title_size=16,
-                 line_width=2, color=((x+10)/24)*np.ones(3),
-                 x_bounds=[-10, 10],
-                 y_bounds=[0, 600],
-                 z_bounds=[0, 5],
-                 grid=True, grid_color='lightgrey',
-                 title='Stratos IV flight profile: {} vs {}'.format(col2.split(' ', 1)[0], col1.split(' ', 1)[0]),
-                 label=self.s.replace('_', ' '),
-                 legend=True, legend_size=9.5, legend_ncol=2,
-                 more_subplots_left=not last)
+            line3(x=xx,
+                  y=y,
+                  z=z,
+                  x_label='Wind', x_label_pad=10,
+                  y_label=col1, y_label_pad=10, y_label_rotation=90,
+                  z_label=col2, z_label_pad=10, z_label_rotation=90,
+                  x_label_size=16, y_label_size=16, title_size=16,
+                  line_width=2, color=((x+10)/24)*np.ones(3),
+                  x_bounds=[-10, 10],
+                  y_bounds=[0, 600],
+                  z_bounds=[0, 5],
+                  grid=True, grid_color='lightgrey',
+                  title='Stratos IV flight profile: {} vs {}'.format(col2.split(' ', 1)[0], col1.split(' ', 1)[0]),
+                  legend=True, legend_size=9.5, legend_ncol=2,
+                  more_subplots_left=not last)
         except ValueError:
             print('Sheet {}: time [s] is not in column name list:\n{}'.format(self.s, self.headings))
         return self
