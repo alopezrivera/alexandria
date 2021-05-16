@@ -10,3 +10,11 @@ def find_between_quotations(s):
 
 def find_number(s):
     return re.findall(r'\d+', s)
+
+
+def tuple_to_equal(a):
+    chars = r"()"
+    for c in chars:
+        if c in a:
+            a = a.replace(c, "")
+    return a.replace(", ", " = ")

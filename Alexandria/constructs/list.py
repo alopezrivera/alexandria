@@ -1,3 +1,8 @@
+"""
+Manipulation
+"""
+
+
 def chain_words(lst):
     t = ''
     for i in range(len(lst)):

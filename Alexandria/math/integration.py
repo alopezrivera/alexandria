@@ -2,16 +2,25 @@ import numpy as np
 from scipy.integrate import quad
 from scipy.interpolate import interp1d
 
+from Alexandria.constructs.array import dx_v
 
-def dt_v(t):
-    dt_v = np.array(list([t[i + 1] - t[i]] for i in range(t.size - 1)))
-    dt_v = np.append(dt_v, np.array([t[-2] - t[-1]]))
-    return dt_v
+
+class one_d:
+
+    @classmethod
+    def trapezoidal(cls, f, x):
+        f_prime = np.zeros(len(f))
+        dt_f = dx_v(x)
+        for i in range(f.size - 1):
+            f_prime[i] = dt_f[i] * (f[i] + (f[i + 1] - f[i]) / 2)
+        np.append(f_prime, dt_f[-2] * (f[-1] + (f[-2] - f[-1]) / 2))
+        return f_prime.sum(), f_prime
 
 
 class two_d:
 
-    def Q_interp1d(self, x1, x2, target, log=False):
+    @classmethod
+    def Q_interp1d(cls, x1, x2, target, log=False):
         """
         :param x1:
         :param x2:

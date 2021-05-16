@@ -4,5 +4,5 @@
 # Setuptools distribution folder.
 /dist/
 
-# Python egg metadata, regenerated from source file_management by setuptools.
+# Python egg metadata, regenerated from source file by setuptools.
 /*.egg-info

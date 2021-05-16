@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Python-Alexandria",
-    version="1.0.0",
+    version="1.1.6",
     author="Antonio Lopez Rivera",
     author_email="antonlopezr99@gmail.com",
     description="General utilities for Python projects",
@@ -15,7 +15,8 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires=[
         "termcolor",
-        "scipy"
+        "scipy",
+        "numpy",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

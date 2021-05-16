@@ -7,10 +7,17 @@ import matplotlib.pyplot as plt
 from mpl_plotter.two_d import line
 from mpl_plotter.three_d import line as line3
 
-from constructs.list import chain_words
+from Alexandria.constructs.list import chain_words
 
 
-class Worksheet:
+class txt:
+    @classmethod
+    def save_txt(cls, filename, results):
+        with open(filename, 'a') as f:
+            f.write('	'.join(map(str, results))+'\n')
+
+
+class xlsx:
     def __init__(self, wb, s):
         self.s = s
         self.ws = wb[s]
@@ -90,3 +97,4 @@ class Worksheet:
         except ValueError:
             print('Sheet {}: time [s] is not in column name list:\n{}'.format(self.s, self.headings))
         return self
+

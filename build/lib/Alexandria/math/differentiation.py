@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.interpolate import UnivariateSpline
 
-from math.algorithms import largest_prime_factor
+from Alexandria.math.algorithms import largest_prime_factor
 
 
 def derivative(x, y):

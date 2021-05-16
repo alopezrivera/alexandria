@@ -1,3 +1,8 @@
+"""
+Macauley step functions
+"""
+
+
 def macauley(x, k):
     return x - k if x - k >= 0 else 0
 
