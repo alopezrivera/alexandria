@@ -7,9 +7,15 @@ Python library of general utilities.
 
 `pip install Python-Alexandria`
 
+### 2. Use
+
+`from Alexandria.<> import <>`
+
 ### 2. Lectern
 
-Alexandria
+Import reference.
+
+#### _Alexandria_
 - constructs
     - array
         - `find_nearest_entry`
