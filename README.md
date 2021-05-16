@@ -1,4 +1,7 @@
 # Alexandria
+
+![alt text](tests/coverage/coverage.svg ".coverage available in tests/coverage/")
+
 Python library of general utilities.
 
 `Antonio Lopez Rivera, 2021`
@@ -17,10 +20,13 @@ Import reference.
 
 - Alexandria
     - constructs
+        - type_safety
+            - `ensure_ndarray`
         - array
             - `find_nearest_entry`
             - `span`
             - `internal_array_shape`
+            - `dx_v`
             - `pretty_array`
             - `lists_to_ndarrays`
         - datetime

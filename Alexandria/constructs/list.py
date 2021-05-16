@@ -3,8 +3,8 @@ Manipulation
 """
 
 
-def chain_words(lst):
+def chain_words(lst, sep=" "):
     t = ''
     for i in range(len(lst)):
-        t = t + ' ' + lst[i]
+        t = t + sep + lst[i]
     return t[1:]

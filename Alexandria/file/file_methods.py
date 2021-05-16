@@ -54,7 +54,6 @@ class xlsx:
                  title='{} vs {}'.format(chain_words(col2.split(' ')[:-1]).capitalize(), chain_words(col1.split(' ')[:-1]).capitalize()),
                  plot_label=self.s.replace('_', ' ')[:-2],
                  legend=True, legend_size=12 if not isinstance(fig, type(None)) else 10, legend_ncol=2,
-                 more_subplots_left=not last,
                  backend=None)
         except ValueError:
             print("Probable errors:\n" +
@@ -92,8 +91,8 @@ class xlsx:
                   z_bounds=[0, 5],
                   grid=True, grid_color='lightgrey',
                   title='Stratos IV flight profile: {} vs {}'.format(col2.split(' ', 1)[0], col1.split(' ', 1)[0]),
-                  legend=True, legend_size=9.5, legend_ncol=2,
-                  more_subplots_left=not last)
+                  legend=True, legend_size=9.5, legend_ncol=2
+                  )
         except ValueError:
             print('Sheet {}: time [s] is not in column name list:\n{}'.format(self.s, self.headings))
         return self

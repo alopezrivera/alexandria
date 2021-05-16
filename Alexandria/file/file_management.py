@@ -13,5 +13,7 @@ def find_file(extension, path=None):
     """
     r = re.compile(f'.*{extension}?')
     tgt = os.path.join(root(), path) if not isinstance(path, type(None)) else root()
-    f = list((filter(r.match, list(chain.from_iterable(chain.from_iterable(os.walk(tgt)))))))[0]
-    return os.path.join(str(root()), f)
+    print(tgt)
+    matches = list((filter(r.match, list(chain.from_iterable(chain.from_iterable(os.walk(tgt)))))))
+    paths = list(map(lambda x: os.path.join(str(root()), x).replace("\\", "/"), matches))
+    return paths

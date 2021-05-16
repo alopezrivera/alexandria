@@ -40,7 +40,7 @@ class ControlSignals:
         u = self.merge(control_input, t0, t1)
         return u
 
-    def u_linear(self, v0, v1, t0, t1):
+    def u_ramp(self, v0, v1, t0, t1):
         """
         :param v0: Initial value of linear control input
         :param v1: End value of linear control input
@@ -59,16 +59,17 @@ class ControlSignals:
         :param t1: Control input end time
         :return: Control time vector: merged input and release time
         """
+
         if t0 == 0:
             control_release = np.zeros(self.seconds_to_n(t1, self.total))
             u = np.concatenate((control_input,
                                 control_release))
         elif t0 > 0:
-            control_release_0 = np.zeros(self.seconds_to_n(0, t0))
-            control_release_t1 = np.zeros(self.seconds_to_n(t1, self.total))
-            u = np.concatenate((control_release_0,
+            control_hold = np.zeros(self.seconds_to_n(0, t0))
+            control_release = np.zeros(self.seconds_to_n(t1, self.total))
+            u = np.concatenate((control_hold,
                                 control_input,
-                                control_release_t1))
+                                control_release))
         else:
             raise Exception(f"Invalid t0 ({t0})")
         return u

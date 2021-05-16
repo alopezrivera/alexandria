@@ -1,9 +1,12 @@
 import re
 
 
-def find_between_quotations(s):
+def find_between_quotations(s, q='"'):
     try:
-        return re.findall('"([^"]*)"', str(s))[0]
+        if q == '"':
+            return re.findall('"([^"]*)"', str(s))[0]
+        elif q == "'":
+            return re.findall("'([^']*)'", str(s))[0]
     except IndexError:
         return print('No match')
 
