@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Python-Alexandria",
-    version="1.2.1",
+    version="1.2.3",
     author="Antonio Lopez Rivera",
     author_email="antonlopezr99@gmail.com",
     description="General utilities for Python projects",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/antonlopezr/python_utils",
+    url="https://github.com/antonlopezr/alexandria",
     packages=setuptools.find_packages(),
     install_requires=[
         "termcolor",

@@ -1,7 +1,5 @@
 import unittest
 
-from mpl_plotter.presets.publication.two_d import line
-
 from Alexandria.control import signals
 
 
