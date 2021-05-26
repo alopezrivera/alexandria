@@ -25,7 +25,7 @@ def span(a):
     a = ensure_ndarray(a)
     if a.size > 1:
         a_s = a + a.min() if a.min() < 0 else a
-        return max(a_s) - min(a_s)
+        return a_s.max() - a_s.min()
     elif a.size == 1:
         return 0
 
