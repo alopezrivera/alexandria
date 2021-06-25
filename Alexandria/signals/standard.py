@@ -5,6 +5,14 @@ from Alexandria.math.differentiation import forward_euler
 from Alexandria.constructs.array import find_nearest_entry
 
 
+def u(t):
+    return np.array([1 if i > 0 else 0 for i in t]).flatten()
+
+
+def r(t):
+    return np.array([max(0, i) for i in t]).flatten()
+
+
 def square(f, t):
     """
     :param f: Signal formula

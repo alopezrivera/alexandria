@@ -1,10 +1,24 @@
 import unittest
 import numpy as np
 
-from Alexandria.signals.standard import square, triangular
+from Alexandria.signals.standard import u, r, square, triangular
 
 
 class Tests(unittest.TestCase):
+
+    def test_u(self):
+        from mpl_plotter.presets.publication import two_d
+        t = np.linspace(-10, 10, 100)
+        s = 3 * u((t - 5) / 2)
+
+        two_d.line(t, s, show=True)
+
+    def test_r(self):
+        from mpl_plotter.presets.publication import two_d
+        t = np.linspace(-10, 10, 100)
+        s = 3 * r((t - 5) / 2)
+
+        two_d.line(t, s, show=True)
 
     def test_square(self):
         from mpl_plotter.presets.publication import two_d
