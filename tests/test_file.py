@@ -3,13 +3,13 @@ import unittest
 from Alexandria.file import file_management
 
 
-class Tests():
+class Tests(unittest.TestCase):
 
-    def file_management(self):
-        print(file_management.find_file("txt"))
+    def test_file_management(self):
+        print(file_management.find_file("txt", "resources"))
 
-    def file_methods(self):
+    def test_file_methods(self):
         pass
 
-    def parsers(self):
+    def test_parsers(self):
         pass
