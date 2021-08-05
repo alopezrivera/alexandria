@@ -31,6 +31,9 @@ jobs:
         run: |
           pwd
           ls
+          cd alexandria
+          ls
+          cd ..
       - name: Generate docs
         run:  pdoc --html alexandria --force --output-dir=docs
       - name: Push new docs to anchorage-docs.github.io
