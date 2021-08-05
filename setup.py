@@ -16,7 +16,6 @@ setuptools.setup(
     install_requires=[
         "scipy",
         "numpy",
-        "PyYAML"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
