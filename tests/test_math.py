@@ -1,13 +1,13 @@
 import unittest
 
-from Alexandria.math import algorithms
-from Alexandria.math import differentiation
-from Alexandria.math import integration
-from Alexandria.math import interpolation
-from Alexandria.math import functions
-from Alexandria.math import numbers
-from Alexandria.math import units
-from Alexandria.math import latex
+from alexandria.math import algorithms
+from alexandria.math import differentiation
+from alexandria.math import integration
+from alexandria.math import interpolation
+from alexandria.math import functions
+from alexandria.math import numbers
+from alexandria.math import units
+from alexandria.math import latex
 
 
 class Tests(unittest.TestCase):

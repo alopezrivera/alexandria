@@ -1,12 +1,12 @@
 import unittest
 
-from Alexandria.file import file_management
+from alexandria.file import find
 
 
 class Tests(unittest.TestCase):
 
     def test_file_management(self):
-        print(file_management.find_file("txt", "resources"))
+        print(find.find_file("txt", "resources"))
 
     def test_file_methods(self):
         pass

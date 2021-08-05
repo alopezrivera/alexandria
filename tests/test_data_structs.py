@@ -2,11 +2,9 @@ import unittest
 import numpy as np
 import datetime as dt
 
-from Alexandria.constructs import type_safety
-from Alexandria.constructs import array
-from Alexandria.constructs import datetime
-from Alexandria.constructs import list
-from Alexandria.constructs import string
+from alexandria.data_structs import array
+from alexandria.data_structs import datetime
+from alexandria.data_structs import string
 
 
 x = np.array([1, 2, 5, 7])
@@ -16,7 +14,7 @@ y = np.array([[1, 2], [2, 3], [3, 3]])
 class TypeSafetyTests(unittest.TestCase):
 
     def test_ensure_ndarray(self):
-        assert isinstance(type_safety.ensure_ndarray([1, 2, 3]), np.ndarray)
+        assert isinstance(array.ensure_ndarray([1, 2, 3]), np.ndarray)
 
 
 class ArrayTests(unittest.TestCase):
@@ -56,12 +54,6 @@ class DatetimeTests(unittest.TestCase):
     def test_dt_n(self):
         d = datetime.datetime_to_days([dt.datetime(1999, 2, 3), dt.datetime(1999, 2, 4)])
         assert d[1] - d[0] == 1
-
-
-class ListTests(unittest.TestCase):
-
-    def test_chain_words(self):
-        assert list.chain_words(["a", "b"], sep="-") == "a-b"
 
 
 class StringTests(unittest.TestCase):
