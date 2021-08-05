@@ -2,7 +2,7 @@ import numpy as np
 
 try:
     from alexandria.math.numbers import get_representative_decimals
-except ModuleNotFoundError:
+except ModuleNotFoundError:     # GitHub Actions hack. For some reason alexandria.math is not detected
     pass
 
 
