@@ -1,9 +1,7 @@
 import numpy as np
 
-try:
-    from alexandria.math.numbers import get_representative_decimals
-except ModuleNotFoundError:     # GitHub Actions hack. For some reason alexandria.math is not detected
-    pass
+
+from alexandria.math.numbers import get_representative_decimals
 
 
 def find_nearest_entry(array, value):
