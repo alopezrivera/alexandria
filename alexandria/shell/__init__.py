@@ -136,7 +136,10 @@ def str_log(kind, msg,
             msg_color='cyan',
             msg_bg_color="",
             t_color="",
-            t_bg_color=""):
+            t_bg_color="",
+            n=10,
+            m=20,
+            ):
     """
     Create rich logging string.
 
@@ -157,17 +160,32 @@ def str_log(kind, msg,
     :param t_color: Time text color.
     :param t_bg_color: Time background color.
     """
-    # Print current time
+    # Current time
     t = datetime.now().strftime("%H:%M:%S")
-    str_t    = str_color(t,    t_color,    t_bg_color)
-    # Print log kind
-    str_kind = str_color(kind, kind_color, kind_bg_color)
-    # Print log
-    str_msg  = str_color(msg,  msg_color,  msg_bg_color)
 
-    r = join_set_distance(str_t + " ::", str_kind, 15)
-    r = join_set_distance(r, "::", 47)
-    r = join_set_distance(r, str_msg, len(r))
+    # Set distances
+    r = join_set_distance(t + " ::", kind, n)
+    r = join_set_distance(r, " ::", m)
+    r = join_set_distance(r, msg, len(r))
+
+    str_t, str_kind, str_msg = r.split(" :: ")
+
+    # Take care not to color whitespace for KIND string
+    #     It is assumed that all possible whitespace has
+    #     been added by <<join_set_distance>> and is thus
+    #     placed at the end of the string.
+    n0 = len(str_kind)
+    str_kind = str_kind.rstrip()
+    n1 = len(str_kind)
+    n_ws = n0 - n1
+
+    # Color
+    c_str_t    = str_color(str_t,    t_color,    t_bg_color)
+    c_str_kind = str_color(str_kind, kind_color, kind_bg_color) + " "*n_ws
+    c_str_msg  = str_color(str_msg,  msg_color,  msg_bg_color)
+
+    # Join in final string
+    r = " :: ".join([c_str_t, c_str_kind, c_str_msg])
     return r
 
 
