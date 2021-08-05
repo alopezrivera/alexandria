@@ -1,3 +1,7 @@
+"""
+Path string utilities.
+"""
+
 import os
 import sys
 

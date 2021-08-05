@@ -1,3 +1,7 @@
+"""
+Regex utilities.
+"""
+
 import re
 import sys
 

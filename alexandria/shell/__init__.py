@@ -8,11 +8,6 @@ from alexandria.shell.color import colors, shell_supports_color
 from alexandria.data_structs.string import join_set_distance
 
 
-"""
-Context manager
-"""
-
-
 @contextmanager
 def suppress_stdout():
     """
@@ -25,11 +20,6 @@ def suppress_stdout():
             yield
         finally:
             sys.stdout = old_stdout
-
-
-"""
-Color
-"""
 
 
 def str_color(string, color, color_bg="", highlight=""):
@@ -140,11 +130,6 @@ def print_color(string, color, color_bg="", highlight="", **kwargs):
         print(string, **kwargs)
 
 
-"""
-Log
-"""
-
-
 def str_log(kind, msg,
             kind_color='black',
             kind_bg_color='white',
@@ -222,11 +207,6 @@ def log(kind, msg,
     print(s, **kwargs)
 
 
-"""
-Lists
-"""
-
-
 def print_numbered_list(lst, length=10):
     """
     Print numbered list.
@@ -238,11 +218,6 @@ def print_numbered_list(lst, length=10):
         n = f"{i+1}"+"."
         s = join_set_distance(n, str(lst[i]), length)
         print(s)
-
-
-"""
-Other
-"""
 
 
 def print_result(var, val, u, d=5, n=10):

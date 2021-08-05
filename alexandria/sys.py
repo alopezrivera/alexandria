@@ -1,3 +1,7 @@
+"""
+Operating system utilities.
+"""
+
 import platform
 
 

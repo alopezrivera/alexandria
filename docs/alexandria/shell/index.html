@@ -36,11 +36,6 @@ from alexandria.shell.color import colors, shell_supports_color
 from alexandria.data_structs.string import join_set_distance
 
 
-&#34;&#34;&#34;
-Context manager
-&#34;&#34;&#34;
-
-
 @contextmanager
 def suppress_stdout():
     &#34;&#34;&#34;
@@ -53,11 +48,6 @@ def suppress_stdout():
             yield
         finally:
             sys.stdout = old_stdout
-
-
-&#34;&#34;&#34;
-Color
-&#34;&#34;&#34;
 
 
 def str_color(string, color, color_bg=&#34;&#34;, highlight=&#34;&#34;):
@@ -168,11 +158,6 @@ def print_color(string, color, color_bg=&#34;&#34;, highlight=&#34;&#34;, **kwar
         print(string, **kwargs)
 
 
-&#34;&#34;&#34;
-Log
-&#34;&#34;&#34;
-
-
 def str_log(kind, msg,
             kind_color=&#39;black&#39;,
             kind_bg_color=&#39;white&#39;,
@@ -250,11 +235,6 @@ def log(kind, msg,
     print(s, **kwargs)
 
 
-&#34;&#34;&#34;
-Lists
-&#34;&#34;&#34;
-
-
 def print_numbered_list(lst, length=10):
     &#34;&#34;&#34;
     Print numbered list.
@@ -266,11 +246,6 @@ def print_numbered_list(lst, length=10):
         n = f&#34;{i+1}&#34;+&#34;.&#34;
         s = join_set_distance(n, str(lst[i]), length)
         print(s)
-
-
-&#34;&#34;&#34;
-Other
-&#34;&#34;&#34;
 
 
 def print_result(var, val, u, d=5, n=10):

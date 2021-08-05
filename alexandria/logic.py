@@ -1,3 +1,8 @@
+"""
+Simple logical clauses.
+"""
+
+
 def if_none(a, b):
     """
     :param a: Variable 1
