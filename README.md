@@ -4,9 +4,8 @@
 
 Python library of general utilities.
 
+    pip install Python-Alexandria
+
+## [API reference]()
+
 `Antonio Lopez Rivera, 2021`
-
-#### [API reference]()
-
-#### Install
-`pip install Python-Alexandria`
