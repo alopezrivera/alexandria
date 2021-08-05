@@ -137,8 +137,8 @@ def str_log(kind, msg,
             msg_bg_color="",
             t_color="",
             t_bg_color="",
-            n=10,
-            m=20,
+            m=10,
+            n=20,
             ):
     """
     Create rich logging string.
@@ -159,14 +159,16 @@ def str_log(kind, msg,
     :param msg_bg_color: Message background color.
     :param t_color: Time text color.
     :param t_bg_color: Time background color.
+    :param m: Separation between beginning of TIME string and beginning of KIND string.
+    :param n: Separation between beginning of KIND string and beginning of MSG string.
     """
     # Current time
     t = datetime.now().strftime("%H:%M:%S")
 
     # Set distances
-    r = join_set_distance(t + " ::", kind, n)
-    r = join_set_distance(r, " ::", m)
-    r = join_set_distance(r, msg, len(r))
+    r = join_set_distance(t + " ::", kind,  m)
+    r = join_set_distance(r,         " ::", n)
+    r = join_set_distance(r,         msg,   len(r))
 
     str_t, str_kind, str_msg = r.split(" :: ")
 
