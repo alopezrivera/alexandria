@@ -12,7 +12,8 @@
 /.vs
 
 # PyCharm folders
-
+/.idea
+Alexandria/.idea
 
 # Other
 /.pytest_cache
