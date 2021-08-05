@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="Python-alexandria",
+    name="Python-Alexandria",
     version="2.0",
     author="Antonio Lopez Rivera",
     author_email="antonlopezr99@gmail.com",
