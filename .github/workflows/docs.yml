@@ -30,8 +30,14 @@ jobs:
       - name: Check running directory
         run: |
           pwd
+          echo "List"
           ls
+          echo "alexandria"
           cd alexandria
+          ls
+          cd ..
+          echo "Alexandria"
+          cd Alexandria
           ls
           cd ..
       - name: Generate docs
