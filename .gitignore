@@ -12,7 +12,7 @@
 /.vs
 
 # PyCharm folders
-/.idea
+
 
 # Other
 /.pytest_cache
