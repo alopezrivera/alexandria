@@ -29,11 +29,6 @@
 <pre><code class="python">import re
 
 
-&#34;&#34;&#34;
-Modifications
-&#34;&#34;&#34;
-
-
 def capletter(s, n):
     &#34;&#34;&#34;
     Capitalize _n_th letter of string
@@ -46,12 +41,14 @@ def capletter(s, n):
         return s
 
 
-&#34;&#34;&#34;
-Search
-&#34;&#34;&#34;
-
-
 def find_between_quotations(s, q=&#39;&#34;&#39;):
+    &#34;&#34;&#34;
+    Find substrings between quotations.
+
+    :param s: Input string.
+    :param q: Quotation mark type. Default: &#34;
+    :return: Substrings found between quotation marks _q_
+    &#34;&#34;&#34;
     try:
         if q == &#39;&#34;&#39;:
             return re.findall(&#39;&#34;([^&#34;]*)&#34;&#39;, str(s))[0]
@@ -59,11 +56,6 @@ def find_between_quotations(s, q=&#39;&#34;&#39;):
             return re.findall(&#34;&#39;([^&#39;]*)&#39;&#34;, str(s))[0]
     except IndexError:
         return print(&#39;No match&#39;)
-
-
-&#34;&#34;&#34;
-Join
-&#34;&#34;&#34;
 
 
 def join_set_distance(s, u, n=20):
@@ -81,12 +73,11 @@ def join_set_distance(s, u, n=20):
     return s + &#39; &#39; * m + u.rstrip()
 
 
-&#34;&#34;&#34;
-Representation
-&#34;&#34;&#34;
-
-
 def tuple_to_equal(a):
+    &#34;&#34;&#34;
+    :param a: Tuple.
+    :return: String of the form &#34;tuple[0] = tuple[1]&#34;
+    &#34;&#34;&#34;
     chars = r&#34;()&#34;
     for c in chars:
         if c in a:
@@ -126,12 +117,22 @@ def tuple_to_equal(a):
 <span>def <span class="ident">find_between_quotations</span></span>(<span>s, q='"')</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Find substrings between quotations.</p>
+<p>:param s: Input string.
+:param q: Quotation mark type. Default: "
+:return: Substrings found between quotation marks <em>q</em></p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def find_between_quotations(s, q=&#39;&#34;&#39;):
+    &#34;&#34;&#34;
+    Find substrings between quotations.
+
+    :param s: Input string.
+    :param q: Quotation mark type. Default: &#34;
+    :return: Substrings found between quotation marks _q_
+    &#34;&#34;&#34;
     try:
         if q == &#39;&#34;&#39;:
             return re.findall(&#39;&#34;([^&#34;]*)&#34;&#39;, str(s))[0]
@@ -174,12 +175,17 @@ String 2 equals <em>n</em>.</p></div>
 <span>def <span class="ident">tuple_to_equal</span></span>(<span>a)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>:param a: Tuple.
+:return: String of the form "tuple[0] = tuple[1]"</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def tuple_to_equal(a):
+    &#34;&#34;&#34;
+    :param a: Tuple.
+    :return: String of the form &#34;tuple[0] = tuple[1]&#34;
+    &#34;&#34;&#34;
     chars = r&#34;()&#34;
     for c in chars:
         if c in a:

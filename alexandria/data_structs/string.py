@@ -1,11 +1,6 @@
 import re
 
 
-"""
-Modifications
-"""
-
-
 def capletter(s, n):
     """
     Capitalize _n_th letter of string
@@ -18,12 +13,14 @@ def capletter(s, n):
         return s
 
 
-"""
-Search
-"""
-
-
 def find_between_quotations(s, q='"'):
+    """
+    Find substrings between quotations.
+
+    :param s: Input string.
+    :param q: Quotation mark type. Default: "
+    :return: Substrings found between quotation marks _q_
+    """
     try:
         if q == '"':
             return re.findall('"([^"]*)"', str(s))[0]
@@ -31,11 +28,6 @@ def find_between_quotations(s, q='"'):
             return re.findall("'([^']*)'", str(s))[0]
     except IndexError:
         return print('No match')
-
-
-"""
-Join
-"""
 
 
 def join_set_distance(s, u, n=20):
@@ -53,12 +45,11 @@ def join_set_distance(s, u, n=20):
     return s + ' ' * m + u.rstrip()
 
 
-"""
-Representation
-"""
-
-
 def tuple_to_equal(a):
+    """
+    :param a: Tuple.
+    :return: String of the form "tuple[0] = tuple[1]"
+    """
     chars = r"()"
     for c in chars:
         if c in a:

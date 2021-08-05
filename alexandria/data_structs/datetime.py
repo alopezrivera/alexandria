@@ -1,11 +1,6 @@
 import datetime as dt
 
 
-"""
-datetime manipulations
-"""
-
-
 def string_to_datetime(dates, fmt='%Y-%m-%d'):
     """
     :param dates: List of dates in string format

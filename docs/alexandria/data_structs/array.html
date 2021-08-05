@@ -31,23 +31,35 @@
 from alexandria.math.numbers import get_representative_decimals
 
 
-&#34;&#34;&#34;
-Slicing
-&#34;&#34;&#34;
-
-
 def find_nearest_entry(array, value):
+    &#34;&#34;&#34;
+    Find nearest entry of array to input value.
+
+    :param array: Array.
+    :param value: Input value.
+
+    :param array: np.ndarray
+    :param value: float
+
+    :return: [int]   Index of closest value in array
+             [float] Closest value in array
+    &#34;&#34;&#34;
     array = ensure_ndarray(array)
     idx = (np.abs(array - value)).argmin()
     return idx, array[idx]
 
 
-&#34;&#34;&#34;
-Characteristics
-&#34;&#34;&#34;
-
-
 def span(a):
+    &#34;&#34;&#34;
+    Find the difference between the highest and lowest elements
+    of a list or array.
+
+    :param a: Array.
+
+    :type a: np.ndarray | list
+
+    :return: [float] Array span.
+    &#34;&#34;&#34;
     a = ensure_ndarray(a)
     if a.size &gt; 1:
         a_s = a + a.min() if a.min() &lt; 0 else a
@@ -57,16 +69,21 @@ def span(a):
 
 
 def internal_array_shape(x):
+    &#34;&#34;&#34;
+    Find shape of all internal arrays of an input array x.
+
+    :param x: Array.
+
+    :type x: np.ndarray | list
+
+    :return: [np.ndarray] Array with the shapes of all internal
+             arrays of _x_.
+    &#34;&#34;&#34;
     x = ensure_ndarray(x)
     if x.ndim &gt; 1:
         return np.array([x[n].shape for n in range(len(x))])
     else:
         return np.ones(x.shape)
-
-
-&#34;&#34;&#34;
-Manipulations
-&#34;&#34;&#34;
 
 
 def dx_v(t):
@@ -81,25 +98,18 @@ def dx_v(t):
     return dt_v
 
 
-&#34;&#34;&#34;
-Console output
-&#34;&#34;&#34;
-
-
 def pretty_array(a):
+    &#34;&#34;&#34;
+    Pretty print NumPy array
+    &#34;&#34;&#34;
     return np.array2string(a, precision=get_representative_decimals(np.min(a[np.nonzero(a)])), suppress_small=True)
-
-
-&#34;&#34;&#34;
-Creation
-&#34;&#34;&#34;
 
 
 def lists_to_ndarrays(*args):
     &#34;&#34;&#34;
     Transform a series of lists into NumPy arrays, and return them contained in a parent NumPy array
-    :param args: Number n of lists
-    :return: Array of NumPy arrays
+    :param args: Number n of lists.
+    :return: Array of NumPy arrays.
     &#34;&#34;&#34;
     import inspect
     args, _, _, values = inspect.getargvalues(inspect.currentframe())
@@ -112,12 +122,11 @@ def lists_to_ndarrays(*args):
     return inputs
 
 
-&#34;&#34;&#34;
-Type safety
-&#34;&#34;&#34;
-
-
 def ensure_ndarray(a):
+    &#34;&#34;&#34;
+    Return _a_ if it is a NumPy array, or else return _a_
+    as a NumPy array.
+    &#34;&#34;&#34;
     return np.asarray(a) if not isinstance(a, np.ndarray) else a</code></pre>
 </details>
 </section>
@@ -155,12 +164,17 @@ for higher precision differentiation or integration with uneven measurements.</p
 <span>def <span class="ident">ensure_ndarray</span></span>(<span>a)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Return <em>a</em> if it is a NumPy array, or else return <em>a</em>
+as a NumPy array.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def ensure_ndarray(a):
+    &#34;&#34;&#34;
+    Return _a_ if it is a NumPy array, or else return _a_
+    as a NumPy array.
+    &#34;&#34;&#34;
     return np.asarray(a) if not isinstance(a, np.ndarray) else a</code></pre>
 </details>
 </dd>
@@ -168,12 +182,31 @@ for higher precision differentiation or integration with uneven measurements.</p
 <span>def <span class="ident">find_nearest_entry</span></span>(<span>array, value)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Find nearest entry of array to input value.</p>
+<p>:param array: Array.
+:param value: Input value.</p>
+<p>:param array: np.ndarray
+:param value: float</p>
+<p>:return: [int]
+Index of closest value in array
+[float] Closest value in array</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def find_nearest_entry(array, value):
+    &#34;&#34;&#34;
+    Find nearest entry of array to input value.
+
+    :param array: Array.
+    :param value: Input value.
+
+    :param array: np.ndarray
+    :param value: float
+
+    :return: [int]   Index of closest value in array
+             [float] Closest value in array
+    &#34;&#34;&#34;
     array = ensure_ndarray(array)
     idx = (np.abs(array - value)).argmin()
     return idx, array[idx]</code></pre>
@@ -183,12 +216,26 @@ for higher precision differentiation or integration with uneven measurements.</p
 <span>def <span class="ident">internal_array_shape</span></span>(<span>x)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Find shape of all internal arrays of an input array x.</p>
+<p>:param x: Array.</p>
+<p>:type x: np.ndarray | list</p>
+<p>:return: [np.ndarray] Array with the shapes of all internal
+arrays of <em>x</em>.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def internal_array_shape(x):
+    &#34;&#34;&#34;
+    Find shape of all internal arrays of an input array x.
+
+    :param x: Array.
+
+    :type x: np.ndarray | list
+
+    :return: [np.ndarray] Array with the shapes of all internal
+             arrays of _x_.
+    &#34;&#34;&#34;
     x = ensure_ndarray(x)
     if x.ndim &gt; 1:
         return np.array([x[n].shape for n in range(len(x))])
@@ -201,8 +248,8 @@ for higher precision differentiation or integration with uneven measurements.</p
 </code></dt>
 <dd>
 <div class="desc"><p>Transform a series of lists into NumPy arrays, and return them contained in a parent NumPy array
-:param args: Number n of lists
-:return: Array of NumPy arrays</p></div>
+:param args: Number n of lists.
+:return: Array of NumPy arrays.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -210,8 +257,8 @@ for higher precision differentiation or integration with uneven measurements.</p
 <pre><code class="python">def lists_to_ndarrays(*args):
     &#34;&#34;&#34;
     Transform a series of lists into NumPy arrays, and return them contained in a parent NumPy array
-    :param args: Number n of lists
-    :return: Array of NumPy arrays
+    :param args: Number n of lists.
+    :return: Array of NumPy arrays.
     &#34;&#34;&#34;
     import inspect
     args, _, _, values = inspect.getargvalues(inspect.currentframe())
@@ -228,12 +275,15 @@ for higher precision differentiation or integration with uneven measurements.</p
 <span>def <span class="ident">pretty_array</span></span>(<span>a)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Pretty print NumPy array</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def pretty_array(a):
+    &#34;&#34;&#34;
+    Pretty print NumPy array
+    &#34;&#34;&#34;
     return np.array2string(a, precision=get_representative_decimals(np.min(a[np.nonzero(a)])), suppress_small=True)</code></pre>
 </details>
 </dd>
@@ -241,12 +291,26 @@ for higher precision differentiation or integration with uneven measurements.</p
 <span>def <span class="ident">span</span></span>(<span>a)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Find the difference between the highest and lowest elements
+of a list or array.</p>
+<p>:param a: Array.</p>
+<p>:type a: np.ndarray | list</p>
+<p>:return: [float] Array span.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def span(a):
+    &#34;&#34;&#34;
+    Find the difference between the highest and lowest elements
+    of a list or array.
+
+    :param a: Array.
+
+    :type a: np.ndarray | list
+
+    :return: [float] Array span.
+    &#34;&#34;&#34;
     a = ensure_ndarray(a)
     if a.size &gt; 1:
         a_s = a + a.min() if a.min() &lt; 0 else a

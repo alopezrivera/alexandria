@@ -3,23 +3,35 @@ import numpy as np
 from alexandria.math.numbers import get_representative_decimals
 
 
-"""
-Slicing
-"""
-
-
 def find_nearest_entry(array, value):
+    """
+    Find nearest entry of array to input value.
+
+    :param array: Array.
+    :param value: Input value.
+
+    :param array: np.ndarray
+    :param value: float
+
+    :return: [int]   Index of closest value in array
+             [float] Closest value in array
+    """
     array = ensure_ndarray(array)
     idx = (np.abs(array - value)).argmin()
     return idx, array[idx]
 
 
-"""
-Characteristics
-"""
-
-
 def span(a):
+    """
+    Find the difference between the highest and lowest elements
+    of a list or array.
+
+    :param a: Array.
+
+    :type a: np.ndarray | list
+
+    :return: [float] Array span.
+    """
     a = ensure_ndarray(a)
     if a.size > 1:
         a_s = a + a.min() if a.min() < 0 else a
@@ -29,16 +41,21 @@ def span(a):
 
 
 def internal_array_shape(x):
+    """
+    Find shape of all internal arrays of an input array x.
+
+    :param x: Array.
+
+    :type x: np.ndarray | list
+
+    :return: [np.ndarray] Array with the shapes of all internal
+             arrays of _x_.
+    """
     x = ensure_ndarray(x)
     if x.ndim > 1:
         return np.array([x[n].shape for n in range(len(x))])
     else:
         return np.ones(x.shape)
-
-
-"""
-Manipulations
-"""
 
 
 def dx_v(t):
@@ -53,25 +70,18 @@ def dx_v(t):
     return dt_v
 
 
-"""
-Console output
-"""
-
-
 def pretty_array(a):
+    """
+    Pretty print NumPy array
+    """
     return np.array2string(a, precision=get_representative_decimals(np.min(a[np.nonzero(a)])), suppress_small=True)
-
-
-"""
-Creation
-"""
 
 
 def lists_to_ndarrays(*args):
     """
     Transform a series of lists into NumPy arrays, and return them contained in a parent NumPy array
-    :param args: Number n of lists
-    :return: Array of NumPy arrays
+    :param args: Number n of lists.
+    :return: Array of NumPy arrays.
     """
     import inspect
     args, _, _, values = inspect.getargvalues(inspect.currentframe())
@@ -84,10 +94,9 @@ def lists_to_ndarrays(*args):
     return inputs
 
 
-"""
-Type safety
-"""
-
-
 def ensure_ndarray(a):
+    """
+    Return _a_ if it is a NumPy array, or else return _a_
+    as a NumPy array.
+    """
     return np.asarray(a) if not isinstance(a, np.ndarray) else a
