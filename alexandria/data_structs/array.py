@@ -1,6 +1,5 @@
 import numpy as np
 
-from alexandria.shell import print_color
 from alexandria.math.numbers import get_representative_decimals
 
 
