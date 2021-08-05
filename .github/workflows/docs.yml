@@ -26,17 +26,23 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Install pdoc3
-        run: pip install pdoc3
+        run: pip3 install pdoc3
       - name: Check running directory
         run: |
           pwd
+          echo "========================="
           echo "List"
+          echo "========================="
           ls
+          echo "========================="
           echo "alexandria"
+          echo "========================="
           cd alexandria
           ls
           cd ..
+          echo "========================="
           echo "Alexandria"
+          echo "========================="
           cd Alexandria
           ls
           cd ..
