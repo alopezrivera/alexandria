@@ -1,7 +1,10 @@
 import numpy as np
 
-# from alexandria.math.numbers import get_representative_decimals
-#
+try:
+    from alexandria.math.numbers import get_representative_decimals
+except ModuleNotFoundError:
+    pass
+
 
 def find_nearest_entry(array, value):
     """
