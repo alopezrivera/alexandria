@@ -6,24 +6,34 @@ def polyfit(x, y, z, kx=3, ky=3):
     Polyfit-function, adapted from answers provided by
     https://stackoverflow.com/questions/33964913/equivalent-of-polyfit-for-a-2d-polynomial-in-python
 
-    Input parameters:
-        x,y: array-like, 1d, containing coordinates in x- and y-direction.
-        z: np.ndarray, 2d, containing data values.
-        kx,ky: polynomial order in x and y, respectively.
+    :param x:  Domain 1.
+    :param y:  Domain 2.
+    :param z:  Function.
+    :param kx: Polynomial order in x.
+    :param ky: Polynomial order in y.
+
+    :type x:   np.ndarray
+    :type y:   np.ndarray
+    :type z:   np.ndarray
+    :type kx:  float
+    :type ky:  float
+
+    :return:
     """
 
-    def transformx (x):
-        return -1 + 2 * (x - xmin)/(xmax - xmin)
-    def transformy (y):
-        return -1 + 2 * (y - ymin)/(ymax - ymin)
+    def transform_x(_x):
+        return -1 + 2 * (_x - xmin)/(xmax - xmin)
+
+    def transform_y(_y):
+        return -1 + 2 * (_y - ymin)/(ymax - ymin)
 
     xmax = np.amax(x)
     xmin = np.amin(x)
     ymax = np.amax(y)
     ymin = np.amin(y)
 
-    x = transformx(x)
-    y = transformy(y)
+    x = transform_x(x)
+    y = transform_y(y)
 
     xx, yy = np.meshgrid(x,y,copy=False)
 
@@ -37,8 +47,8 @@ def polyfit(x, y, z, kx=3, ky=3):
 
     coef, r, rank, s = np.linalg.lstsq(A.T,np.ravel(z),rcond=None)
 
-    res = lambda x,y: np.polynomial.polynomial.polyval2d(transformx(x),
-                                                         transformy(y),
+    res = lambda x,y: np.polynomial.polynomial.polyval2d(transform_x(x),
+                                                         transform_y(y),
                                                          coef.reshape((kx+1,
                                                                        ky+1)))
 

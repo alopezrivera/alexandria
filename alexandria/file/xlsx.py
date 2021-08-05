@@ -7,15 +7,6 @@ import matplotlib.pyplot as plt
 from mpl_plotter.two_d import line
 from mpl_plotter.three_d import line as line3
 
-from Alexandria.constructs.list import chain_words
-
-
-class txt:
-    @classmethod
-    def save_txt(cls, filename, results):
-        with open(filename, 'a') as f:
-            f.write('	'.join(map(str, results))+'\n')
-
 
 class xlsx:
     def __init__(self, wb, s):
@@ -48,10 +39,10 @@ class xlsx:
                  x_label=col1.capitalize(),
                  y_label=col2.capitalize(),
                  x_label_size=18, y_label_rotation=90, y_label_size=18,
-                 x_label_pad=args_x[0], x_upper_bound=args_x[1][1], x_lower_bound=args_x[1][0], custom_x_tick_labels=args_x[2], x_tick_number=args_x[3],
-                 y_label_pad=args_y[0], y_upper_bound=args_y[1][1], y_lower_bound=args_y[1][0], custom_y_tick_labels=args_y[2], y_tick_number=args_y[3],
+                 x_label_pad=args_x[0], x_upper_bound=args_x[1][1], x_lower_bound=args_x[1][0], x_custom_tick_labels=args_x[2], x_tick_number=args_x[3],
+                 y_label_pad=args_y[0], y_upper_bound=args_y[1][1], y_lower_bound=args_y[1][0], y_custom_tick_labels=args_y[2], y_tick_number=args_y[3],
                  grid=True, grid_color='lightgrey', tick_ndecimals=2,
-                 title='{} vs {}'.format(chain_words(col2.split(' ')[:-1]).capitalize(), chain_words(col1.split(' ')[:-1]).capitalize()),
+                 title='{} vs {}'.format("".join(col2.split(' ')[:-1]).capitalize(), "".join(col1.split(' ')[:-1])).capitalize(),
                  plot_label=self.s.replace('_', ' ')[:-2],
                  legend=True, legend_size=12 if not isinstance(fig, type(None)) else 10, legend_ncol=2,
                  backend=None)
@@ -96,4 +87,3 @@ class xlsx:
         except ValueError:
             print('Sheet {}: time [s] is not in column name list:\n{}'.format(self.s, self.headings))
         return self
-

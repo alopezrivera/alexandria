@@ -1,8 +1,6 @@
 import numpy as np
-from math import ceil
 
-from Alexandria.constructs.type_safety import ensure_ndarray
-from Alexandria.math.numbers import get_representative_decimals
+from alexandria.math.numbers import get_representative_decimals
 
 
 """
@@ -84,3 +82,12 @@ def lists_to_ndarrays(*args):
         else:
             inputs[i] = np.array(inputs[i])
     return inputs
+
+
+"""
+Type safety
+"""
+
+
+def ensure_ndarray(a):
+    return np.asarray(a) if not isinstance(a, np.ndarray) else a
