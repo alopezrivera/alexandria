@@ -24,7 +24,7 @@ def s_to_hms(n):
     """
     hours, remainder = divmod(n, 3600)
     minutes, seconds = divmod(remainder, 60)
-    return f'{int(hours)}:{int(minutes)}:{seconds:.2f}'
+    return int(hours), int(minutes), seconds
 
 
 def d_to_dms(n):
@@ -34,4 +34,4 @@ def d_to_dms(n):
     """
     mnt, sec = divmod(n*3600, 60)
     deg, mnt = divmod(mnt, 60)
-    return f'{int(deg)}:{int(mnt)}:{sec:.2f}'
+    return int(deg), int(mnt), sec
