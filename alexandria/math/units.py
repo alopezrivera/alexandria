@@ -17,7 +17,21 @@ def lbs_to_kg(m):
 
 
 # Conversion
-def s_to_hms(_n):
-    hours, remainder = divmod(_n, 3600)
+def s_to_hms(n):
+    """
+    Decimal seconds to
+        hh :: m :: ss
+    """
+    hours, remainder = divmod(n, 3600)
     minutes, seconds = divmod(remainder, 60)
     return f'{int(hours)}:{int(minutes)}:{seconds:.2f}'
+
+
+def d_to_dms(n):
+    """
+    Decimal degrees to
+        dd :: mm :: ss.ss
+    """
+    mnt, sec = divmod(n*3600, 60)
+    deg, mnt = divmod(mnt, 60)
+    return f'{int(deg)}:{int(mnt)}:{sec:.2f}'
