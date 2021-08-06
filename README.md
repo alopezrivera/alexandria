@@ -8,4 +8,4 @@ Python library of general utilities.
 
 _Antonio Lopez Rivera, 2021_
 
-# [API Reference]()
+# [API Reference](https://alopezrivera-docs.github.io/alexandria/)
