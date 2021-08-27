@@ -1,5 +1,6 @@
 import os
 import sys
+from pyfiglet import Figlet
 from datetime import datetime
 from contextlib import contextmanager
 
@@ -41,6 +42,7 @@ def str_color(string, color, color_bg="", highlight=""):
     ### Available colors:
     - 'black'     |   'brightBlack'
     - 'red'       |   'brightRed'
+    - 'orange'    |   'brightOrange'        - might not be supported
     - 'green'     |   'brightGreen'
     - 'yellow'    |   'brightYellow'
     - 'blue'      |   'brightBlue'
@@ -100,6 +102,7 @@ def print_color(string, color, color_bg="", highlight="", **kwargs):
     ### Available colors:
     - 'black'     |   'brightBlack'
     - 'red'       |   'brightRed'
+    - 'orange'    |   'brightOrange'        - might not be supported
     - 'green'     |   'brightGreen'
     - 'yellow'    |   'brightYellow'
     - 'blue'      |   'brightBlue'
@@ -225,6 +228,18 @@ def log(kind, msg,
                 msg_color, msg_bg_color,
                 t_color, t_bg_color)
     print(s, **kwargs)
+
+
+def title(text="Anchorage", font="big", color=""):
+    """
+    Generate Figlet title.
+
+    :param text: Text to be rendered
+    :param font: Figlet font to render the title
+    :param color: Title color
+    """
+    f = Figlet(font=font)
+    return str_color(f.renderText(text), color)
 
 
 def print_numbered_list(lst, length=10):

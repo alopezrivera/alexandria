@@ -21,6 +21,12 @@ class colors:
     bgRed           = "\033[41m"
     bgBrightRed     = "\033[41;1m"
 
+    # Orange (may not be supported)
+    fgOrange = "\033[38:2:252:127:0m"
+    fgBrightOrange = "\033[38:2:255:165:0m"
+    bgOrange = "\033[48:2:252:127:0m"
+    bgBrightOrange = "\033[48:2:255:165:0m"
+
     # Green
     fgGreen         = "\033[32m"
     fgBrightGreen   = "\033[32;1m"

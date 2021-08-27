@@ -37,6 +37,6 @@ jobs:
           source-directory: 'docs/alexandria'
           destination-github-username: 'alopezrivera-docs'
           destination-repository-name: 'alexandria'
-          user-email: alopezrivera.docs@gmail.com
+          user-email: antonlopezr99@gmail.com
           commit-message: See ORIGIN_COMMIT from $GITHUB_REF
           target-branch: main
