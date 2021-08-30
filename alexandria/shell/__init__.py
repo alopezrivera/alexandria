@@ -255,7 +255,7 @@ def print_numbered_list(lst, length=10):
         print(s)
 
 
-def print_result(var, val, u, d=5, n=10):
+def print_result(var, val, u, d=3, n=30):
     """
     Pretty print a calculated result.
 
@@ -266,7 +266,7 @@ def print_result(var, val, u, d=5, n=10):
     :param n: Resulting string length
     :return:
     """
-    s = join_set_distance(f'{var} {val:.{d}f}', u, n)
+    s = join_set_distance(f'{var} = {val:.{d}f}', u, n)
     print(s)
 
 

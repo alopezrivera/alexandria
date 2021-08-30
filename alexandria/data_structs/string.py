@@ -30,7 +30,7 @@ def find_between_quotations(s, q='"'):
         return print('No match')
 
 
-def join_set_distance(s, u, n=20):
+def join_set_distance(s, u, n=20, sep=' '):
     """
     :param s: String 1
     :param u: String 2
@@ -42,7 +42,7 @@ def join_set_distance(s, u, n=20):
     if not isinstance(s, type(str)):
         s = str(s)
     m = max(n - len(s.replace("\n", "")), 1)
-    return s + ' ' * m + u.rstrip()
+    return s + sep * m + u.rstrip()
 
 
 def tuple_to_equal(a):
