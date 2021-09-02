@@ -266,7 +266,7 @@ def print_result(var, val, u, d=3, n=30):
     :param n: Resulting string length
     :return:
     """
-    s = join_set_distance(f'{var} = {val:.{d}f}', u, n)
+    s = join_set_distance(f'{var} = {val:,.{d}f}', u, n)
     print(s)
 
 
