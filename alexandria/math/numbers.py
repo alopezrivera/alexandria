@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: © 2021 Antonio López Rivera <antonlopezr99@gmail.com>
+# SPDX-License-Identifier: GPL-3.0-only
+
+"""
+Number utilities
+----------------
+"""
+
+
 import numpy as np
 from math import ceil
 
@@ -15,6 +24,9 @@ def get_representative_decimals(n, precision=1/100):
 
 def min_multiple_under(x, base):
     """
+    Returns the minimum multiple of the base
+    that is larger than x.
+
     :param x: Maximum value
     :param base: Base
     :return: Minimum multiple of Base larger than x

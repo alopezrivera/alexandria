@@ -1,3 +1,4 @@
 """
-Signal creation and processing.
+Signal processing utilities
+---------------------------
 """
