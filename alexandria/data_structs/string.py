@@ -56,21 +56,6 @@ def join_set_distance(s, u, n=20, sep=' '):
     return s + sep * m + u.rstrip()
 
 
-def tuple_to_equal(a, n=20):
-    """
-    :param a: Tuple.
-    :param n: Separation between first and second value of the tuple.
-
-    :return: String of the form "tuple[0] = tuple[1]"
-    """
-    chars = r"()"
-    for c in chars:
-        if c in a:
-            a = a.replace(c, "")
-    k, v = a.split(',')
-    return join_set_distance(k, '= ' + v, n)
-
-
 def sort_based_on_other(l_subject, l_sort):
     """
     Return both input lists, sorted based on the values of the second.
